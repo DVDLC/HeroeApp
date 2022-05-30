@@ -6,7 +6,7 @@ import { ErrorPage } from "../ui/404"
 export const HeroeScreen = () => {
 
     const { heroeID } = useParams()
-    const imagePATH = `/assets/${ heroeID }.jpg`
+    const heroesIMG = require.context( '../../assets', true )
     const heroe =  useMemo( () => getHeroeByID( heroeID ), [heroeID]) 
 
     if( !heroe ) return <ErrorPage />
@@ -16,7 +16,7 @@ export const HeroeScreen = () => {
         <div className="row mt-5">
             <div className="col-4">
                 <img 
-                    src={ imagePATH} 
+                    src={ heroesIMG(`./${heroeID}.jpg`) } 
                     alt={ heroe.superhero } 
                     className='img-thumbnail animate__animated animate__fadeInLeft animate__faster' 
                 />

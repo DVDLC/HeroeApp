@@ -10,11 +10,11 @@ export const HeroCard = ({
     characters
 }) => { 
 
-    const imagePATH = `/assets/${ id }.jpg`
+const heroesIMG = require.context( '../../assets', true )
 
     return(
         <Link to={`/hero/${id}`} className="my-card">
-            <img src={ imagePATH } className='img img-responsive' alt={ superhero } />
+            <img src={ heroesIMG(`./${id}.jpg`) } className='img img-responsive' alt={ superhero } />
             <div className="profile-name">{superhero}</div>
             <div className="profile-position">{alter_ego}</div>
             <div className="profile-overview">
