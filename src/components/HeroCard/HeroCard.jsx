@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { heroesIMG } from "../../helpers/heroesImages"
 
 
 export const HeroCard = ({
@@ -9,8 +10,6 @@ export const HeroCard = ({
     first_appearance,
     characters
 }) => { 
-
-const heroesIMG = require.context( '../../assets', true )
 
     return(
         <Link to={`/hero/${id}`} className="my-card">

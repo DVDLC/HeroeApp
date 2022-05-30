@@ -1,12 +1,12 @@
 import { useMemo } from "react"
 import { useParams } from "react-router-dom"
 import { getHeroeByID } from "../../helpers/getHeroByID"
+import { heroesIMG } from "../../helpers/heroesImages"
 import { ErrorPage } from "../ui/404"
 
 export const HeroeScreen = () => {
 
     const { heroeID } = useParams()
-    const heroesIMG = require.context( '../../assets', true )
     const heroe =  useMemo( () => getHeroeByID( heroeID ), [heroeID]) 
 
     if( !heroe ) return <ErrorPage />
